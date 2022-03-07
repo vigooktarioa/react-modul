@@ -110,6 +110,38 @@ class ListGallery extends Component {
             </div>
         )
     }
+    Add = () => {
+        // menampilkan komponen modal
+        $("#modal_buku").modal("show")
+        this.setState({
+            isbn: Math.random(1, 10000000),
+            judul: "",
+            penulis: "",
+            penerbit: "",
+            cover: "",
+            harga: 0,
+            action: "insert"
+        })
+    }
+
+    Edit = (item) => {
+        // menampilkan komponen modal
+        $("#modal_buku").modal("show")
+        this.setState({
+            isbn: item.isbn,
+            judul: item.judul,
+            penulis: item.penulis,
+            penerbit: item.penerbit,
+            cover: item.cover,
+            harga: item.harga,
+            action: "update",
+            selectedItem: item
+        })
+    }
+
+
 }
+
+
 
 export default ListGallery;

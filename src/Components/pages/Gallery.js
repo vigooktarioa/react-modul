@@ -114,7 +114,7 @@ class ListGallery extends Component {
     }
     Add = () => {
         // menampilkan komponen modal
-        $("#modal_buku").modal("show")
+        $("#modal_buku").show(true)
         this.setState({
             isbn: Math.random(1, 10000000),
             judul: "",
@@ -128,7 +128,7 @@ class ListGallery extends Component {
 
     Edit = (item) => {
         // menampilkan komponen modal
-        $("#modal_buku").modal("show")
+        $("#modal_buku").show()
         this.setState({
             isbn: item.isbn,
             judul: item.judul,
@@ -140,6 +140,8 @@ class ListGallery extends Component {
             selectedItem: item
         })
     }
+
+    
 
 
 }

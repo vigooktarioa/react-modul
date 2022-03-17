@@ -38,7 +38,9 @@ class ListGallery extends Component {
                 <div className="row">
                     {this.state.buku.map((item, index) => (
                         <Card
+                            
                             judul={item.judul}
+                            isbn={item.isbn}
                             penulis={item.penulis}
                             penerbit={item.penerbit}
                             harga={item.harga}

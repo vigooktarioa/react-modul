@@ -18,6 +18,9 @@ class Card extends React.Component {
                                 {this.props.judul}
                             </h5>
                             <h6 className="text-dark">
+                                ISBN : {this.props.isbn}
+                            </h6>
+                            <h6 className="text-dark">
                                 Penulis: {this.props.penulis}
                             </h6>
                             <h6 className="text-dark">

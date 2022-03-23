@@ -1,24 +1,23 @@
 import React from 'react';
-import Utama from './Components/utama';
+import Utama from './utama';
+import Atas from './Atas';
+import Test from './Test';
 import {Link} from 'react-router-dom';
-
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Container, Card, Button } from 'react-bootstrap';
+import './App.css';
 
 class App extends React.Component{
   render(){
     return(
       
+      
       <div>
-        <table>
-          <tr class="mt-3">
-            <td><Link className="btn btn-sm btn-primary m-2" to="/">Beranda</Link></td> 
-            <td><Link className="btn btn-sm btn-primary m-2" to="/tentangsaya">Tentang Saya</Link></td> 
-            <td><Link className="btn btn-sm btn-primary m-2" to="/karya">Karya</Link></td>
-            <td><Link className="btn btn-sm btn-primary m-2" to="/kontak">Kontak</Link></td>
-            <td><Link className="btn btn-sm btn-primary m-2" to="/list">List</Link></td>
-            <Link to="/gallery" className="nav-link">Gallery</Link> 
-          </tr>
-        </table>
-      <p><Utama /></p>
+        <p><Atas /></p>
+        <p><Utama /></p>
+        <p><Test /></p>
+
+        
+        
       </div>
     );
   }

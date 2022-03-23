@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import Card from "./Card.js"
+import Kartu from "./Kartu.js"
+import './App.css';
+
 class ListGallery extends Component {
     constructor() {
         super()
         this.state = {
-            buku: [
+            resto: [
                 {
-                    isbn: "12345", judul: "Bulan", penulis: "Tere Liye",
-                    penerbit: "CV Harapan Kita", harga: 90000,
-                    cover: "https://drive.google.com/uc?id=1ui-jyKgu3DqFyo7VKJu-FFXkaNQN3aSg"
+                    nama: "Warung Woles",
+                    kategori: "Ayam Goreng • $$",
+                    bintang: "5"
                 },
                 {
-                    isbn: "12346", judul: "Anak Badai", penulis: "Tere Liye",
-                    penerbit: "CV Nusa Bangsa", harga: 80000,
-                    cover: "https://drive.google.com/uc?id=1rJDcCOmsd14NL6DG3Wps_kewZomGcLU-"
+                    nama: "Warung Ikan",
+                    kategori: "Seafood • $$",
+                    bintang: "4"
                 },
                 {
                     isbn: "54321", judul: "Bumi", penulis: "Tere Liye",
@@ -35,11 +37,11 @@ class ListGallery extends Component {
     render() {
         return (
             <div className="container">
+                
                 <div className="row">
                     {this.state.buku.map((item, index) => (
-                        <Card
-                            
-                            judul={item.judul}
+                        <Kartu
+                            nama={item.nama}
                             isbn={item.isbn}
                             penulis={item.penulis}
                             penerbit={item.penerbit}
@@ -139,6 +141,38 @@ class ListGallery extends Component {
             action: "update",
             selectedItem: item
         })
+    }
+
+    Save = (event) => {
+        event.preventDefault();
+        // menampung data state buku
+        let tempBuku = this.state.buku
+
+        if (this.state.action === "insert") {
+            // menambah data baru
+            tempBuku.push({
+                isbn: this.state.isbn,
+                judul: this.state.judul,
+                penulis: this.state.penulis,
+                penerbit: this.state.penerbit,
+                cover: this.state.cover,
+                harga: this.state.harga,
+            })
+        } else if (this.state.action === "update") {
+            // menyimpan perubahan data
+            let index = tempBuku.indexOf(this.state.selectedItem)
+            tempBuku[index].isbn = this.state.isbn
+            tempBuku[index].judul = this.state.judul
+            tempBuku[index].penulis = this.state.penulis
+            tempBuku[index].penerbit = this.state.penerbit
+            tempBuku[index].cover = this.state.cover
+            tempBuku[index].harga = this.state.harga
+        }
+
+        this.setState({ buku: tempBuku })
+
+        // menutup komponen modal_buku
+        $("#modal_buku").show(false)
     }
 
 
